@@ -1,0 +1,8 @@
+C:\Users\Professional\source\repos\Labirynt2.0\Labirynt2.0\bin\Debug\Labirynt2.0.exe.config
+C:\Users\Professional\source\repos\Labirynt2.0\Labirynt2.0\bin\Debug\Labirynt2.0.exe
+C:\Users\Professional\source\repos\Labirynt2.0\Labirynt2.0\bin\Debug\Labirynt2.0.pdb
+C:\Users\Professional\source\repos\Labirynt2.0\Labirynt2.0\obj\Debug\Labirynt2.0.csproj.AssemblyReference.cache
+C:\Users\Professional\source\repos\Labirynt2.0\Labirynt2.0\obj\Debug\Labirynt2.0.csproj.SuggestedBindingRedirects.cache
+C:\Users\Professional\source\repos\Labirynt2.0\Labirynt2.0\obj\Debug\Labirynt2.0.csproj.CoreCompileInputs.cache
+C:\Users\Professional\source\repos\Labirynt2.0\Labirynt2.0\obj\Debug\Labirynt2.0.exe
+C:\Users\Professional\source\repos\Labirynt2.0\Labirynt2.0\obj\Debug\Labirynt2.0.pdb

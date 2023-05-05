@@ -1,0 +1,176 @@
+﻿//using System;
+
+using System;
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        Logic l = new Logic(10, 10);
+        l.GameCycle();
+    }
+}
+
+class Draw
+{
+    public static void DrawMap(char[,] map, int height, int width)
+    {
+        for(int i = 0; i < height; i++)
+        {
+            for (int j = 0; j < width; j++)
+            {
+                Console.Write(map[i, j]);
+            }
+            Console.WriteLine("");
+        }
+    }
+}
+
+class Input
+{
+    private char prevInp = ' ';
+
+    public char GetInput()
+    {
+        prevInp = Console.ReadLine().ToCharArray()[0];
+        return prevInp;
+    }
+}
+
+class Logic
+{
+    public char[,] map;
+    private Input input;
+    private short horInp, verInp;
+    private int cordX, cordY;
+    private bool isRunning;
+    private int height, width;
+
+    public Logic(int height, int width)
+    {
+        this.height = height;
+        this.width = width;
+        map = new char[width, height];
+
+        isRunning = true;
+
+        input = new Input();
+    }
+    #region Bot
+    //public Logic(char[,] map, Input input, short horInp, short verInP, int cordX, int cordY, bool isRunning, int height, int width)
+    //{
+    //    this.map = map;
+    //    this.input = input;
+    //    this.horInp = horInp;
+    //    this.verInP = verInP;
+    //    this.cordX = cordX;
+    //    this.cordY = cordY;
+    //    this.isRunning = isRunning;
+    //    this.height = height;
+    //    this.width = width;
+    //}
+    #endregion
+
+    public void Move()
+    {
+        map[cordX + horInp, cordY + verInp] = '0';
+        map[cordX, cordY] = ' ';
+
+        cordX += horInp;
+        cordY += verInp;
+    }
+
+    public void TryMove()
+    {
+        if (map[cordX + horInp, cordY + verInp] == 'f') isRunning = true;
+        if (map[cordX + horInp, cordY + verInp] != '#') Move();
+    }
+
+    public void GenerateMap()
+    {
+        for (int i = 0; i < height; i++)
+        {
+            for (int j = 0; j < height; j++)
+            {
+                int freq = 100;
+                Random random = new Random();
+                freq = random.Next(0, 100);
+
+                if (freq > 30) map[i, j] = '#';
+                else map[i, j] = ' ';
+            }
+        }
+
+        map[0, 0] = 'f';
+        map[height - 1, width - 1] = '0';
+        cordX = width - 1; cordY = height - 1;
+    }
+
+    public void GameCycle()
+    {
+        GenerateMap();
+        Draw.DrawMap(map, height, width);
+
+        do
+        {
+            GetDirection(input.GetInput());
+            TryMove();
+
+            Draw.DrawMap(map, height, width);
+        } while (isRunning);
+    }
+
+    private void GetDirection(char inp)
+    {
+        horInp = 0;
+        verInp = 0;
+
+        switch (inp)
+        {
+            case 's':
+                horInp = 1;
+                break;
+
+            case 'd':
+                horInp = 1;
+                break;
+            case 'w':
+                horInp = -1;
+                break;
+            case 'a':
+                horInp = -1;
+                break;
+        }
+    }
+}
+
+class person
+{
+    const int maxHp = 100;
+
+    private int hp
+    {
+        get => maxHp;
+
+        if (value > maxHp) hp = maxHp;
+        else if (value < 0) hp = 0;
+        else hp = value
+    }
+}
+
+struct Item
+{
+
+}
+
+class Weapon : Item
+{
+
+}
+
+class armor : Item
+{
+
+}
+
+
